@@ -22,15 +22,20 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             }],
         execute: function() {
             NavbarComponent = (function () {
-                function NavbarComponent() {
+                function NavbarComponent(_route) {
+                    this._route = _route;
                 }
+                NavbarComponent.prototype.isRouteActive = function (route) {
+                    var instruction = this._route.generate(route);
+                    return this._route.isRouteActive(instruction);
+                };
                 NavbarComponent = __decorate([
                     core_1.Component({
                         selector: 'navbar',
                         templateUrl: 'app/nav-bar.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());

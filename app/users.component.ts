@@ -2,7 +2,7 @@ import { Component } from 'angular2/core';
 
 
 @Component({
-    template:'Users'
+    template: 'Users'
 })
 
 export class UsersComponent{
