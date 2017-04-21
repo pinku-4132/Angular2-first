@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', './users.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,22 +10,35 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_1, users_service_1;
     var UsersComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (users_service_1_1) {
+                users_service_1 = users_service_1_1;
             }],
         execute: function() {
             UsersComponent = (function () {
-                function UsersComponent() {
+                function UsersComponent(_usersService) {
+                    this._usersService = _usersService;
                 }
+                UsersComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._usersService.getUsers()
+                        .subscribe(function (users) { return _this.users = users; });
+                };
                 UsersComponent = __decorate([
                     core_1.Component({
-                        template: 'Users'
+                        templateUrl: "app/users.component.html",
+                        providers: [users_service_1.UsersService, http_1.HTTP_PROVIDERS]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [users_service_1.UsersService])
                 ], UsersComponent);
                 return UsersComponent;
             }());

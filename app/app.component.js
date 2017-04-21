@@ -38,7 +38,7 @@ System.register(['angular2/core', './nav-bar.component', 'angular2/router', './h
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        { path: '/home', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
+                        { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: '/users', name: 'Users', component: users_component_1.UsersComponent },
                         { path: '/posts', name: 'Posts', component: posts_component_1.PostsComponent },
                         { path: '/*other', name: 'Others', redirectTo: ['Home'] }

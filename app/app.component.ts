@@ -5,7 +5,7 @@ import { HomeComponent} from './home.component';
 import { UsersComponent} from './users.component';
 import { PostsComponent} from './posts.component';
 @RouteConfig([
-    { path: '/home', name:'Home', component:HomeComponent,useAsDefault:true},
+    { path: '/', name:'Home', component:HomeComponent,useAsDefault:true},
     {path:'/users',name:'Users',component:UsersComponent},
     {path:'/posts',name:'Posts',component:PostsComponent},
     {path:'/*other',name:'Others',redirectTo:['Home']}
