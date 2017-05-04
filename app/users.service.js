@@ -31,6 +31,27 @@ System.register(['angular2/http', "angular2/core", 'rxjs/add/operator/map'], fun
                     return this._http.get(this._url)
                         .map(function (res) { return res.json(); });
                 };
+                UsersService.prototype.getUser = function (id) {
+                    return this._http.get(this.getUserUrl(id))
+                        .map(function (res) { return res.json(); });
+                };
+                UsersService.prototype.addUser = function (user) {
+                    return this._http.post(this._url, JSON.stringify(user))
+                        .map(function (res) { return res.json(); });
+                };
+                UsersService.prototype.updateUser = function (user) {
+                    //testing
+                    console.log("Before updating : ", JSON.stringify(user));
+                    return this._http.put(this.getUserUrl(user.id), JSON.stringify(user))
+                        .map(function (res) { return res.json(); });
+                };
+                UsersService.prototype.deleteUser = function (id) {
+                    return this._http.delete(this.getUserUrl(id))
+                        .map(function (res) { return res.json(); });
+                };
+                UsersService.prototype.getUserUrl = function (id) {
+                    return this._url + '/' + id;
+                };
                 UsersService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])

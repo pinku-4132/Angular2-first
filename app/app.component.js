@@ -1,4 +1,4 @@
-System.register(['angular2/core', './nav-bar.component', 'angular2/router', './home.component', './users.component', './posts.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './nav-bar.component', 'angular2/router', './home.component', './users.component', './posts.component', './newuser.component', './not-found.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './nav-bar.component', 'angular2/router', './h
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, nav_bar_component_1, router_1, home_component_1, users_component_1, posts_component_1;
+    var core_1, nav_bar_component_1, router_1, home_component_1, users_component_1, posts_component_1, newuser_component_1, not_found_component_1;
     var AppComponent;
     return {
         setters:[
@@ -31,6 +31,12 @@ System.register(['angular2/core', './nav-bar.component', 'angular2/router', './h
             },
             function (posts_component_1_1) {
                 posts_component_1 = posts_component_1_1;
+            },
+            function (newuser_component_1_1) {
+                newuser_component_1 = newuser_component_1_1;
+            },
+            function (not_found_component_1_1) {
+                not_found_component_1 = not_found_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -41,12 +47,15 @@ System.register(['angular2/core', './nav-bar.component', 'angular2/router', './h
                         { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: '/users', name: 'Users', component: users_component_1.UsersComponent },
                         { path: '/posts', name: 'Posts', component: posts_component_1.PostsComponent },
+                        { path: '/users/:id', name: 'EditUser', component: newuser_component_1.UserFormComponent },
+                        { path: '/users/new', name: 'NewUser', component: newuser_component_1.UserFormComponent },
+                        { path: '/not-found', name: 'NotFound', component: not_found_component_1.NotFoundComponent },
                         { path: '/*other', name: 'Others', redirectTo: ['Home'] }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n    \n        <navbar></navbar>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n        \n    ",
-                        directives: [nav_bar_component_1.NavbarComponent, router_1.ROUTER_DIRECTIVES]
+                        directives: [nav_bar_component_1.NavBarComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
